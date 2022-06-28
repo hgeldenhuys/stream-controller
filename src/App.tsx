@@ -32,7 +32,7 @@ interface InputChangedEvent {
 // })
 
 // const socket = client('ws://localhost:4000/client')
-const socket = client('wss://staging-gateway.herokuapp.com/game')
+const socket = client('wss://staging-gateway.herokuapp.com/client')
 socket.on('connect', () => {
   console.log('👋 CONNECTED client')
   // socket.emit("")
