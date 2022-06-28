@@ -103,10 +103,10 @@ function App() {
       }}>
         {/*<Arrows chars={[]}/>*/}
         <div style={{position: "absolute", left: 100, top: "calc(50%)"}}>
-          <div style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("w")? "rgb(169 169 169 / 24%)":undefined}}/>
-          <div style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("d")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, -69px)"}}/>
-          <div style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("s")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(180deg) translate(0px, -138px)"}}/>
-          <div style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("a")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, 69px)"}}/>
+          <div onTouchEnd={()=>setChars(chars.filter(c=>c!=='w'))} onTouchStart={()=>setChars([...chars, 'w'])} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("w")? "rgb(169 169 169 / 24%)":undefined}}/>
+          <div onTouchEnd={()=>setChars(chars.filter(c=>c!=='d'))} onTouchStart={()=>setChars([...chars, 'd'])} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("d")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, -69px)"}}/>
+          <div onTouchEnd={()=>setChars(chars.filter(c=>c!=='s'))} onTouchStart={()=>setChars([...chars, 's'])} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("s")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(180deg) translate(0px, -138px)"}}/>
+          <div onTouchEnd={()=>setChars(chars.filter(c=>c!=='a'))} onTouchStart={()=>setChars([...chars, 'a'])} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("a")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, 69px)"}}/>
         </div>
       </div>
       <div className="App"
