@@ -49,7 +49,7 @@ function App() {
   });
   const refDown = useEventListener('keydown', (evt)=>{
     evt.preventDefault()
-    // console.log(evt.metaKey, evt.shiftKey, evt.altKey)
+    console.log(evt.keyCode, evt.metaKey, evt.shiftKey, evt.altKey)
     if (validKeys.includes(evt.key) && !evt.metaKey) {
       if (!chars.includes(evt.key)) setChars([...chars, evt.key])
       if (!codes.includes(evt.keyCode)) setCodes([...codes, evt.keyCode])
@@ -89,6 +89,17 @@ function App() {
   useEffect(() => {
     r.current.focus()
   }, [])
+
+  const keyUp = (char: string, key: number)=> () => {
+    setChars(chars.filter(c=> c !== char));
+    setCodes(codes.filter(c=> c !== key));
+  }
+
+  const keyDown = (char: string, key: number)=> () => {
+    setChars([...chars, char]);
+    setCodes([...codes, key]);
+  }
+
   return (
     <>
       <input type="text" ref={r}/>
@@ -103,10 +114,10 @@ function App() {
       }}>
         {/*<Arrows chars={[]}/>*/}
         <div style={{position: "absolute", left: 100, top: "calc(50%)"}}>
-          <div onTouchEnd={()=>setChars(chars.filter(c=>c!=='w'))} onTouchStart={()=>setChars([...chars, 'w'])} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("w")? "rgb(169 169 169 / 24%)":undefined}}/>
-          <div onTouchEnd={()=>setChars(chars.filter(c=>c!=='d'))} onTouchStart={()=>setChars([...chars, 'd'])} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("d")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, -69px)"}}/>
-          <div onTouchEnd={()=>setChars(chars.filter(c=>c!=='s'))} onTouchStart={()=>setChars([...chars, 's'])} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("s")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(180deg) translate(0px, -138px)"}}/>
-          <div onTouchEnd={()=>setChars(chars.filter(c=>c!=='a'))} onTouchStart={()=>setChars([...chars, 'a'])} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("a")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, 69px)"}}/>
+          <div onTouchEnd={keyUp("w", 87)} onTouchStart={keyDown('w', 87)} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("w")? "rgb(169 169 169 / 24%)":undefined}}/>
+          <div onTouchEnd={keyUp("d", 68)} onTouchStart={keyDown('d', 68)} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("d")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, -69px)"}}/>
+          <div onTouchEnd={keyUp("s", 83)} onTouchStart={keyDown('s', 83)} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("s")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(180deg) translate(0px, -138px)"}}/>
+          <div onTouchEnd={keyUp("a", 65)} onTouchStart={keyDown('a', 65)} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("a")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, 69px)"}}/>
         </div>
       </div>
       <div className="App"
@@ -120,10 +131,10 @@ function App() {
            }}>
         {/*<Arrows chars={[]}/>*/}
         <div style={{position: "absolute", left: 100, top: "50%"}}>
-          <div style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("ArrowUp")? "rgb(169 169 169 / 24%)":undefined}}/>
-          <div style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("ArrowRight")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, -69px)"}}/>
-          <div style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("ArrowDown")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(180deg) translate(0px, -138px)"}}/>
-          <div style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("ArrowLeft")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, 69px)"}}/>
+          <div onTouchEnd={keyUp("ArrowUp", 38)} onTouchStart={keyDown('ArrowUp', 38)} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("ArrowUp")? "rgb(169 169 169 / 24%)":undefined}}/>
+          <div onTouchEnd={keyUp("ArrowRight", 39)} onTouchStart={keyDown('ArrowRight', 38)} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("ArrowRight")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, -69px)"}}/>
+          <div onTouchEnd={keyUp("ArrowLeft", 37)} onTouchStart={keyDown('ArrowLeft', 37)} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("ArrowDown")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(180deg) translate(0px, -138px)"}}/>
+          <div onTouchEnd={keyUp("ArrowDown", 40)} onTouchStart={keyDown('ArrowDown', 40)} style={{border: '1px solid rgb(169 169 169 / 24%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("ArrowLeft")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, 69px)"}}/>
         </div>
       </div>
       <iframe src="https://viewer.millicast.com?streamId=vLjcY2/l4x42dlc&controls=false" allowFullScreen width="640"
