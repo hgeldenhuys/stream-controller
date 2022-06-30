@@ -101,7 +101,7 @@ function App() {
   }
 
   return (
-    <>
+    <div style={{width: "100vw", height: "100vh", overflow: "none", position: "absolute", top: 0, left: 0}}>
       <input type="text" ref={r}/>
       <div  className="noselect"
         style={{
@@ -126,7 +126,7 @@ function App() {
              height: 200,
              position: "absolute",
              top: "calc(25% - 120px)",
-             right: 70,
+             right: 100,
              zIndex: 100
            }}>
         {/*<Arrows chars={[]}/>*/}
@@ -138,8 +138,8 @@ function App() {
         </div>
       </div>
       <iframe src="https://viewer.millicast.com?streamId=vLjcY2/l4x42dlc&controls=false" allowFullScreen width="640"
-              height="480" style={{width: "100vw", height: "100vh", position: "absolute", top: 0, left: 0}} />
-    </>
+              height="480" style={{width: "100vw", height: "100vh", position: "absolute", top: 0, left: 0,  overflow: "none", border: "none"}} />
+    </div>
   )
 }
 //
