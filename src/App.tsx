@@ -137,7 +137,7 @@ function App() {
           <div className="noselect" onTouchEnd={keyUp("ArrowLeft", 37)} onTouchStart={keyDown('ArrowLeft', 37)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("ArrowLeft")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, 69px)"}}/>
         </div>
       </div>
-      <iframe src="https://viewer.millicast.com?streamId=vLjcY2/l4x42dlc&controls=false" allowFullScreen width="640"
+      <iframe src="https://viewer.millicast.com/?streamId=s2CQEh/l51bcun5&controls=false" allowFullScreen width="640"
               height="480" style={{width: "100vw", height: "100vh", position: "absolute", top: 0, left: 0,  overflow: "none", border: "none"}} />
     </div>
   )
