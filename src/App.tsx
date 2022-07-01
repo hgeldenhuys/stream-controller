@@ -1,12 +1,9 @@
 import {createRef, useEffect, useState} from 'react'
 import './App.css'
 import {useEventListener} from '@mantine/hooks';
-import {Title} from "@mantine/core";
 import client from 'socket.io-client'
-import {Arrows} from "./Arrows";
-import {createRoot} from "react-dom/client";
 
-const validKeys = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890ArrowDownArrowUpArrowLeftArrowRight'
+// const validKeys = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890ArrowDownArrowUpArrowLeftArrowRight'
 
 type Vector = [number, number]
 
@@ -50,19 +47,19 @@ function App() {
   const refDown = useEventListener('keydown', (evt)=>{
     evt.preventDefault()
     console.log(evt.keyCode, evt.metaKey, evt.shiftKey, evt.altKey)
-    if (validKeys.includes(evt.key) && !evt.metaKey) {
+    // if (validKeys.includes(evt.key) && !evt.metaKey) {
       if (!chars.includes(evt.key)) setChars([...chars, evt.key])
       if (!codes.includes(evt.keyCode)) setCodes([...codes, evt.keyCode])
-    } else {
-      console.log(evt.key)
-    }
+    // } else {
+    //   console.log(evt.key)
+    // }
   });
   const refUp = useEventListener('keyup', (evt)=>{
     evt.preventDefault()
-    if (validKeys.includes(evt.key)) {
+    // if (validKeys.includes(evt.key)) {
       if (chars.includes(evt.key)) setChars(chars.filter(c => c !== evt.key))
       if (codes.includes(evt.keyCode)) setCodes(codes.filter(c => c !== evt.keyCode))
-    }
+    // }
   });
   // const ref = useMergedRef(refUp, refDown, refMouse);
   useEffect(()=>{
@@ -114,9 +111,9 @@ function App() {
       }}>
         {/*<Arrows chars={[]}/>*/}
         <div className="noselect" style={{position: "absolute", left: 20, top: "calc(50%)"}}>
-          <div className="noselect" onTouchEnd={keyUp("w", 87)} onTouchStart={keyDown('w', 87)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("w")? "rgb(169 169 169 / 24%)":undefined}}/>
+          <div className="noselect" onTouchEnd={keyUp("w", 87)} onTouchStart={keyDown('w', 87)} style={{border: '4px solid rgb(255 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("w")? "rgb(169 169 169 / 24%)":undefined}}/>
           {/*<div className="noselect" onTouchEnd={keyUp("d", 68)} onTouchStart={keyDown('d', 68)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("d")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, -69px)"}}/>*/}
-          <div className="noselect" onTouchEnd={keyUp("s", 83)} onTouchStart={keyDown('s', 83)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("s")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(180deg) translate(0px, -118px)"}}/>
+          <div className="noselect" onTouchEnd={keyUp("s", 83)} onTouchStart={keyDown('s', 83)} style={{border: '4px solid rgb(255 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("s")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(180deg) translate(0px, -118px)"}}/>
           {/*<div className="noselect" onTouchEnd={keyUp("a", 65)} onTouchStart={keyDown('a', 65)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("a")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, 69px)"}}/>*/}
         </div>
       </div>
@@ -131,10 +128,8 @@ function App() {
            }}>
         {/*<Arrows chars={[]}/>*/}
         <div style={{position: "absolute", left: 100, top: "50%"}} className="noselect">
-          {/*<div className="noselect" onTouchEnd={keyUp("ArrowUp", 38)} onTouchStart={keyDown('ArrowUp', 38)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("ArrowUp")? "rgb(169 169 169 / 24%)":undefined}}/>*/}
           <div className="noselect" onTouchEnd={keyUp("d", 37)} onTouchStart={keyDown('d', 37)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("d")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, 49px)"}}/>
           <div className="noselect" onTouchEnd={keyUp("a", 39)} onTouchStart={keyDown('a', 39)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("a")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, -69px)"}}/>
-          {/*<div className="noselect" onTouchEnd={keyUp("ArrowDown", 40)} onTouchStart={keyDown('ArrowDown', 40)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("ArrowDown")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(180deg) translate(0px, -138px)"}}/>*/}
         </div>
       </div>
       {/*<iframe src="https://viewer.millicast.com?streamId=vLjcY2/l4x42dlc&controls=false" allowFullScreen width="640"*/}
