@@ -129,14 +129,14 @@ function App() {
             }}>
         {/*<Arrows chars={[]}/>*/}
         <div className="noselect" style={{position: "absolute", left: 20, top: "calc(50%)"}}>
-          <div className="noselect" onTouchEnd={keyUp("d", 68)} onTouchStart={keyDown('d', 68)} style={{border: '4px solid rgb(255 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("a")? "rgb(169 169 169 / 24%)":undefined}}/>
+          <div className="noselect" onTouchEnd={keyUp("d", 68)} onTouchStart={keyDown('d', 68)} style={{border: '4px solid rgb(255 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("d")? "rgb(169 169 169 / 24%)":undefined}}/>
           {/*<div className="noselect" onTouchEnd={keyUp("d", 68)} onTouchStart={keyDown('d', 68)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("d")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, -69px)"}}/>*/}
-          <div className="noselect" onTouchEnd={keyUp("a", 65)} onTouchStart={keyDown('a', 65)} style={{border: '4px solid rgb(255 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("d")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(180deg) translate(0px, -118px)"}}/>
+          <div className="noselect" onTouchEnd={keyUp("a", 65)} onTouchStart={keyDown('a', 65)} style={{border: '4px solid rgb(255 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("a")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(180deg) translate(0px, -118px)"}}/>
           {/*<div className="noselect" onTouchEnd={keyUp("a", 65)} onTouchStart={keyDown('a', 65)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("a")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, 69px)"}}/>*/}
         </div>
       </div>
       {/*<iframe src="https://viewer.millicast.com?streamId=vLjcY2/l4x42dlc&controls=false" allowFullScreen width="640"*/}
-      <iframe src="https://viewer.millicast.com/?streamId=s2CQEh/l51bcun5" allowFullScreen width="640"
+      <iframe src="https://viewer.millicast.com/?streamId=s2CQEh/l51bcun5&controls=false" allowFullScreen width="640"
               height="480" style={{width: "100vw", height: "100vh", position: "absolute", top: 0, left: 0,  overflow: "none", border: "none"}} />
     </div>
   )
