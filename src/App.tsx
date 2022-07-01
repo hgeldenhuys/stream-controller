@@ -113,7 +113,7 @@ function App() {
         zIndex: 100
       }}>
         {/*<Arrows chars={[]}/>*/}
-        <div className="noselect" style={{position: "absolute", left: 70, top: "calc(50%)"}}>
+        <div className="noselect" style={{position: "absolute", left: 20, top: "calc(50%)"}}>
           <div className="noselect" onTouchEnd={keyUp("w", 87)} onTouchStart={keyDown('w', 87)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("w")? "rgb(169 169 169 / 24%)":undefined}}/>
           {/*<div className="noselect" onTouchEnd={keyUp("d", 68)} onTouchStart={keyDown('d', 68)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("d")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, -69px)"}}/>*/}
           <div className="noselect" onTouchEnd={keyUp("s", 83)} onTouchStart={keyDown('s', 83)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("s")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(180deg) translate(0px, -118px)"}}/>
