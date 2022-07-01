@@ -117,19 +117,22 @@ function App() {
           {/*<div className="noselect" onTouchEnd={keyUp("a", 65)} onTouchStart={keyDown('a', 65)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("a")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, 69px)"}}/>*/}
         </div>
       </div>
-      <div className="App"
-           style={{
-             width: "20vw",
-             height: 200,
-             position: "absolute",
-             top: "calc(25% - 120px)",
-             right: 100,
-             zIndex: 100
-           }}>
+      <div  className="noselect"
+            style={{
+              width: "20vw",
+              height: 200,
+              position: "absolute",
+              bottom: "calc(40% - 120px)",
+              right: 0,
+              zIndex: 100
+              , transform: "rotate(90deg)"
+            }}>
         {/*<Arrows chars={[]}/>*/}
-        <div style={{position: "absolute", left: 100, top: "50%"}} className="noselect">
-          <div className="noselect" onTouchEnd={keyUp("d", 37)} onTouchStart={keyDown('d', 37)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("d")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, 49px)"}}/>
-          <div className="noselect" onTouchEnd={keyUp("a", 39)} onTouchStart={keyDown('a', 39)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("a")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, -69px)"}}/>
+        <div className="noselect" style={{position: "absolute", left: 20, top: "calc(50%)"}}>
+          <div className="noselect" onTouchEnd={keyUp("d", 68)} onTouchStart={keyDown('d', 68)} style={{border: '4px solid rgb(255 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("a")? "rgb(169 169 169 / 24%)":undefined}}/>
+          {/*<div className="noselect" onTouchEnd={keyUp("d", 68)} onTouchStart={keyDown('d', 68)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("d")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, -69px)"}}/>*/}
+          <div className="noselect" onTouchEnd={keyUp("a", 65)} onTouchStart={keyDown('a', 65)} style={{border: '4px solid rgb(255 169 169 / 44%)', width: 70, height: 100, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("d")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(180deg) translate(0px, -118px)"}}/>
+          {/*<div className="noselect" onTouchEnd={keyUp("a", 65)} onTouchStart={keyDown('a', 65)} style={{border: '4px solid rgb(169 169 169 / 44%)', width: 50, height: 85, borderRadius: 5, position: "absolute", backgroundColor: chars.includes("a")? "rgb(169 169 169 / 24%)":undefined, transform: "rotate(90deg) translate(69px, 69px)"}}/>*/}
         </div>
       </div>
       {/*<iframe src="https://viewer.millicast.com?streamId=vLjcY2/l4x42dlc&controls=false" allowFullScreen width="640"*/}
